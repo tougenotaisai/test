@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value.trim();
             const username = document.getElementById('username').value.trim();
+            const age = document.getElementById('age').value.trim();
             const postal = document.getElementById('postal-code').value.replace(/-/g, '').trim();
             const address = document.getElementById('address').value.trim();
             const phone = document.getElementById('phone').value.trim();
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (address.length > 50) errorMsg += '住所は50桁以内で入力してください。<br>';
             if (email.length > 50) errorMsg += 'メールアドレスは50桁以内で入力してください。<br>';
             if (phone.length > 20) errorMsg += '電話番号は20桁以内で入力してください。<br>';
+            if (!/^\d+$/.test(age) || parseInt(age, 10) > 120) errorMsg += '年齢は0から120の数字で入力してください。<br>';
 
             if (errorMsg) {
                 e.preventDefault();
